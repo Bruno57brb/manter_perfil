@@ -87,7 +87,7 @@ try {
     $mail->Subject = "Recuperação de senha do sistema";
     $mail->Body = 'Olá,<br><br>
     Recebemos uma solicitação para redefinir a senha da sua conta. Para prosseguir com a redefinição, clique no link abaixo:
-     <a href="http://localhost:8080/manter_perfil/recuperar/senha_nova.php?email='
+     <a href="http://localhost/manter_perfil/recuperar/senha_nova.php?email='
         . $usuario['email'] . '&token=' . $token . '">Clique aqui para redefinir sua senha</a><br><br>
     Se você não solicitou a alteração de senha, por favor, ignore este e-mail.<br><br>
     Atenciosamente,<br>

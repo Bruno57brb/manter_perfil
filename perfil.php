@@ -78,7 +78,18 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
         exit();
     }
 }
+// Verifica se a solicitação é para excluir a foto do perfil
+if (isset($_POST['delete_photo'])) {
+    $defaultImage = 'default.jpg'; // Define a imagem padrão
+    $deleteSql = "UPDATE usuario SET perfil_img = ? WHERE id_user = ?";
+    $stmt = mysqli_prepare($conexao, $deleteSql);
+    mysqli_stmt_bind_param($stmt, "si", $defaultImage, $id_user);
+    mysqli_stmt_execute($stmt);
 
+    // Remove o arquivo de imagem atual, se não for a imagem padrão
+    if ($dados['perfil_img'] !== $defaultImage && file_exists('img/' . $dados['perfil_img'])) {
+        unlink('img/' . $dados['perfil_img']);
+    }
 ?>
 
 <!DOCTYPE html>

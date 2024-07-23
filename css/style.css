@@ -9,7 +9,7 @@
 
 body {
     background-color: #ffffff;
-    background: linear-gradient(to top  right,brown, Purple,yellow,black,Aqua ,red,green);
+    background: linear-gradient(to top  right,brown, Purple,pink,yellow,black,Aqua ,red,green);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    background: linear-gradient(to top left,brown, Purple,yellow,black,Aqua ,red,green);
+    background: linear-gradient(to top left,brown, Purple,yellow,black,pink,Aqua ,red,green);
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -83,8 +83,9 @@ button:hover {
 }
 
 .container form {
-    background: linear-gradient(to top  ,brown, Purple,yellow,black,Aqua ,red,green);
+    background: linear-gradient(to top ,brown, Purple,yellow,pink,black,Aqua ,red,green);
     display: flex;
+    border-radius: 40%;
     align-items: center;
     justify-content: center;
     flex-direction: column;

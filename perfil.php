@@ -90,6 +90,12 @@ if (isset($_POST['delete_photo'])) {
     if ($dados['perfil_img'] !== $defaultImage && file_exists('img/' . $dados['perfil_img'])) {
         unlink('img/' . $dados['perfil_img']);
     }
+    $_SESSION['mensagem'] = "Foto de perfil excluída com sucesso!";
+    $_SESSION['tipo_mensagem'] = "success";
+    $_SESSION['titulo_mensagem'] = "Sucesso!";
+    header("Location: perfil.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

@@ -10,8 +10,8 @@ if (!isset($_SESSION['id_user']) || empty($_SESSION['id_user'])) {
     exit();
 }
 
-// Obtém o ID do usuário da sessão
-$id_user = $_SESSION['id_user'];
+// Obtém o ID do usuário da URL ou da sessão
+$id_user = isset($_GET['id_user']) ? intval($_GET['id_user']) : $_SESSION['id_user'];
 
 // Consulta SQL para obter os dados do usuário
 $sql = "SELECT * FROM usuario WHERE id_user = $id_user";
@@ -22,7 +22,7 @@ if (!$resultado) {
     $_SESSION['mensagem'] = "Erro ao consultar o banco de dados: " . mysqli_error($conexao);
     $_SESSION['tipo_mensagem'] = "error";
     $_SESSION['titulo_mensagem'] = "Erro!";
-    header("Location: perfil.php");
+    header("Location: perfil.php?id_user=$id_user");
     exit();
 }
 
@@ -58,20 +58,20 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
             $_SESSION['mensagem'] = "Foto de perfil atualizada com sucesso!";
             $_SESSION['tipo_mensagem'] = "success";
             $_SESSION['titulo_mensagem'] = "Sucesso!";
-            header("Location: perfil.php");
+            header("Location: perfil.php?id_user=$id_user");
             exit();
         } else {
             $_SESSION['mensagem'] = "Erro ao mover o arquivo enviado para o diretório de destino.";
             $_SESSION['tipo_mensagem'] = "error";
             $_SESSION['titulo_mensagem'] = "Erro!";
-            header("Location: perfil.php");
+            header("Location: perfil.php?id_user=$id_user");
             exit();
         }
     } else {
         $_SESSION['mensagem'] = "Apenas arquivos JPG, JPEG, PNG e GIF são permitidos.";
         $_SESSION['tipo_mensagem'] = "error";
         $_SESSION['titulo_mensagem'] = "Erro!";
-        header("Location: perfil.php");
+        header("Location: perfil.php?id_user=$id_user");
         exit();
     }
 }
@@ -90,7 +90,7 @@ if (isset($_POST['delete_photo'])) {
     $_SESSION['mensagem'] = "Foto de perfil excluída com sucesso!";
     $_SESSION['tipo_mensagem'] = "success";
     $_SESSION['titulo_mensagem'] = "Sucesso!";
-    header("Location: perfil.php");
+    header("Location: perfil.php?id_user=$id_user");
     exit();
 }
 ?>
@@ -121,11 +121,17 @@ if (isset($_POST['delete_photo'])) {
             </div>
 
             <div class="sidebar">
-                <a href="perfil.php" class="active">
+                <a href="perfil.php?id_user=<?php echo $id_user; ?>" class="active">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Perfil</h3>
+                </a>
+                <a href="excluir/excluir.php?id_user=<?php echo $id_user; ?>">
+                    <span class="material-icons-sharp">
+                        delete
+                    </span>
+                    <h3>Excluir Perfil</h3>
                 </a>
                 <a href="logout.php">
                     <span class="material-icons-sharp">

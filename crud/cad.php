@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            window.location.href = '../perfil.php';
+                            window.location.href = '../index.html';
                         });
                     </script>";
                 } else {
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            window.location.href = '../perfil.php';
+                            window.location.href = '../index.html';
                         });
                     </script>";
                 }
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        window.location.href = '../perfil.php';
+                        window.location.href = '../index.html';
                     });
                 </script>";
             }
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    window.location.href = '../perfil.php';
+                    window.location.href = '../index.html';
                 });
             </script>";
         }
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                window.location.href = '../perfil.php';
+                window.location.href = '../index.html';
             });
         </script>";
     }
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
             showConfirmButton: false,
             timer: 1500
         }).then(() => {
-            window.location.href = '../perfil.php';
+            window.location.href = '../index.html';
         });
     </script>";
 }

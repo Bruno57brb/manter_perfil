@@ -13,12 +13,9 @@ if (!isset($_SESSION['id_user']) || empty($_SESSION['id_user'])) {
 // Obtém o ID do usuário da sessão
 $id_user = $_SESSION['id_user'];
 
-// Consulta SQL para obter os dados do usuário utilizando prepared statements para evitar injeção de SQL
-$sql = "SELECT * FROM usuario WHERE id_user = ?";
-$stmt = mysqli_prepare($conexao, $sql);
-mysqli_stmt_bind_param($stmt, "i", $id_user);
-mysqli_stmt_execute($stmt);
-$resultado = mysqli_stmt_get_result($stmt);
+// Consulta SQL para obter os dados do usuário
+$sql = "SELECT * FROM usuario WHERE id_user = $id_user";
+$resultado = mysqli_query($conexao, $sql);
 
 // Verifica se a consulta foi bem-sucedida
 if (!$resultado) {
@@ -56,7 +53,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
 
         if (move_uploaded_file($fileTmpPath, $dest_path)) {
             $updateSql = "UPDATE usuario SET perfil_img = '$newFileName' WHERE id_user = $id_user";
-            executarSQL($conexao, $updateSql);
+            mysqli_query($conexao, $updateSql);
 
             $_SESSION['mensagem'] = "Foto de perfil atualizada com sucesso!";
             $_SESSION['tipo_mensagem'] = "success";
@@ -78,18 +75,18 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
         exit();
     }
 }
+
 // Verifica se a solicitação é para excluir a foto do perfil
 if (isset($_POST['delete_photo'])) {
     $defaultImage = 'default.jpg'; // Define a imagem padrão
-    $deleteSql = "UPDATE usuario SET perfil_img = ? WHERE id_user = ?";
-    $stmt = mysqli_prepare($conexao, $deleteSql);
-    mysqli_stmt_bind_param($stmt, "si", $defaultImage, $id_user);
-    mysqli_stmt_execute($stmt);
+    $deleteSql = "UPDATE usuario SET perfil_img = '$defaultImage' WHERE id_user = $id_user";
+    mysqli_query($conexao, $deleteSql);
 
     // Remove o arquivo de imagem atual, se não for a imagem padrão
     if ($dados['perfil_img'] !== $defaultImage && file_exists('img/' . $dados['perfil_img'])) {
         unlink('img/' . $dados['perfil_img']);
     }
+
     $_SESSION['mensagem'] = "Foto de perfil excluída com sucesso!";
     $_SESSION['tipo_mensagem'] = "success";
     $_SESSION['titulo_mensagem'] = "Sucesso!";
@@ -97,7 +94,6 @@ if (isset($_POST['delete_photo'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

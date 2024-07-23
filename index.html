@@ -1,6 +1,3 @@
-<?php
-sleep(1);
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,6 +13,70 @@ sleep(1);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.16/jquery.inputmask.min.js"></script>
     <title>LOGIN</title>
+    <style>
+     
+        
+
+        .knuckles-container {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .knuckles {
+            position: absolute;
+            height: 160px;
+            width: 120px;
+            animation: moveKnuckles 2s linear infinite;
+        }
+
+        @keyframes moveKnuckles {
+            0% {
+                left: -120px;
+            }
+            25% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        a {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,23 +84,20 @@ sleep(1);
     <div class="container" id="container">
 
         <div class="form-container sign-in">
+            <div class="knuckles-container">
+                <img src="icon/knuk2.gif" alt="Knuckles" class="knuckles">
+            </div>
             <form action="login.php" method="POST">
-            <div class="social-icons">
-                    <img src="icon/knuk2.gif" alt="SONIC" height="160px" width="120px">
-                </div>
                 <h1>LOGIN</h1>
                 <input type="email" name="email" placeholder="Digite seu Email" required>
                 <input type="password" name="senha" placeholder="Digite sua senha" required>
-              
                 <button type="submit">Entrar</button>
             </form>
             <a href="crud/formcad.html">Cadastrar</a>
-            <br>
             <a href="recuperar/form_recuperar.html">Recuperar senha</a>
         </div>
         
     </div>
-
 
 </body>
 

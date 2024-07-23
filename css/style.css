@@ -8,24 +8,38 @@
 }
 
 body {
-    background-color: #ffffff;
-    background: linear-gradient(to top  right,brown, Purple,pink,yellow,black,Aqua ,red,green);
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff, #00ffff);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
     height: 100vh;
+    margin: 0;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .container {
     background: linear-gradient(to top left,brown, Purple,yellow,black,pink,Aqua ,red,green);
-    border-radius: 30px;
+    border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+    
 }
 
 .container p {

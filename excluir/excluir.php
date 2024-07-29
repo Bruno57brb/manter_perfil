@@ -34,6 +34,9 @@ if (!isset($_GET['id_user']) || empty($_GET['id_user'])) {
 
 $resultado_exclusao = excluirUsuario($conexao, $_GET['id_user']);
 mysqli_close($conexao);
+
+// Destrói a sessão
+session_destroy();
 ?>
 
 <!DOCTYPE html>

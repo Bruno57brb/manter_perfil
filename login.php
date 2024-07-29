@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+o <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['senha
             });
         </script>";
     }
-} else {
+ } else {
     echo "<script>
         Swal.fire({
             icon: 'warning',

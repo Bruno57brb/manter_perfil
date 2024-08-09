@@ -8,38 +8,24 @@
 }
 
 body {
-    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff, #00ffff);
-    background-size: 400% 400%;
-    animation: gradientBackground 15s ease infinite;
+    background-color: #ffffff;
+    background: linear-gradient(to right, #ff7417f1, #f9a601eb);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     height: 100vh;
-    margin: 0;
-}
-
-@keyframes gradientBackground {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .container {
-    background: linear-gradient(to top left,brown, Purple,yellow,black,pink,Aqua ,red,green);
-    border-radius: 50%;
+    background-color: #fff;
+    border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-    
 }
 
 .container p {
@@ -96,10 +82,13 @@ button:hover {
     background-color: #1a1a1a;
 }
 
+
+
+
+
 .container form {
-    background: linear-gradient(to top ,brown, Purple,yellow,pink,black,Aqua ,red,green);
+    background-color: #fff;
     display: flex;
-    border-radius: 40%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -120,7 +109,7 @@ button:hover {
 
 .form-container {
     position: relative;
-    top:30%;
+    top:20%;
     text-align: center;
     left: 23%;
 }
